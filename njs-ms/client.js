@@ -2,7 +2,7 @@ const grpc = require('@grpc/grpc-js');
 const protoLoader = require('@grpc/proto-loader');
 
 // Load the proto file
-const packageDefinition = protoLoader.loadSync('service.proto', {
+const packageDefinition = protoLoader.loadSync('users.proto', {
   keepCase: true,
   longs: String,
   enums: String,
@@ -10,14 +10,14 @@ const packageDefinition = protoLoader.loadSync('service.proto', {
   oneofs: true
 });
 
-const exampleProto = grpc.loadPackageDefinition(packageDefinition).ExampleService;
+const usersProto = grpc.loadPackageDefinition(packageDefinition).UsersService;
 
 // Create a client instance
-const client = new exampleProto('localhost:50051', grpc.credentials.createInsecure());
+const client = new usersProto('localhost:50053', grpc.credentials.createInsecure());
 
 // Make a request to the server
-const request = { query: 'World' };
-client.GetExampleData(request, (err, response) => {
+const request = { query: 'GetUsersRequest' };
+client.GetUsersData(request, (err, response) => {
   if (err) {
     console.error('Error:', err);
   } else {
