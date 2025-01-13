@@ -1,0 +1,15 @@
+{
+    "name": "nodejs-app",
+    "version": "1.0.0",
+    "description": "Node.js gRPC server and client",
+    "main": "server.js",
+    "scripts": {
+      "start-server": "node server.js",
+      "run-client": "node client.js"
+    },
+    "dependencies": {
+      "@grpc/grpc-js": "^1.8.5",
+      "@grpc/proto-loader": "^0.7.5"
+    }
+  }
+  
